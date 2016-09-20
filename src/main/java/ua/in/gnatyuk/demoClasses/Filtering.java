@@ -18,7 +18,9 @@ public class Filtering {
     }
 
     public static List<String> filterSomeStringFromList(List<String> listForFiltering, String word){
-        List<String> result = listForFiltering.stream().filter(x->!x.equals(word)).collect(Collectors.toList());
+        List<String> result = listForFiltering.stream()
+                .filter(x->!x.equals(word)).collect(Collectors.toList());
+        
         return result;
     }
 }
