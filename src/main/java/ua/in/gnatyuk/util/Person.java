@@ -1,9 +1,11 @@
 package ua.in.gnatyuk.util;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
     @Getter @Setter
     Integer id;
@@ -11,5 +13,4 @@ public class Person {
     String firstName;
     @Getter @Setter
     String lastName;
-
 }
