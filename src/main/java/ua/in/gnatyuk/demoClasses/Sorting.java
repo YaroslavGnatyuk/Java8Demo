@@ -3,9 +3,6 @@ package ua.in.gnatyuk.demoClasses;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by yroslav on 9/19/16.
- */
 public class Sorting {
     public static void sortMapByKey(Map<String, Integer> unsorted, Map<String, Integer> result){
         unsorted.entrySet().stream()

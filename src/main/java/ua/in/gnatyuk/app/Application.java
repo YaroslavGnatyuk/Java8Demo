@@ -5,9 +5,7 @@ import java.util.*;
 import static ua.in.gnatyuk.demoClasses.Filtering.*;
 import static ua.in.gnatyuk.demoClasses.Sorting.*;
 
-/**
- * Created by yroslav on 9/19/16.
- */
+
 public class Application {
     public static void main(String[] args) {
         System.out.println("I sorted map by key here");
@@ -32,11 +30,11 @@ public class Application {
 
         result.clear();
 /*-------------------------------------------------------------------------*/
-        System.out.println("\n I sorted map by value here");
+        System.out.println("\nI sorted map by value here");
         sortMapByValue(unsorted,result);
         System.out.println(result);
 /*-------------------------------------------------------------------------*/
-        System.out.println("\n I sorted list here");
+        System.out.println("\nI sorted list here");
         List<String> unsortedList = new LinkedList<>();
         List<String> resultList = new LinkedList<>();
 
@@ -54,7 +52,7 @@ public class Application {
 
         System.out.println(resultList);
 /*-------------------------------------------------------------------------*/
-        System.out.println("\n I filtered list from null-value");
+        System.out.println("\nI filtered list from null-value");
 
         resultList.clear();
         unsortedList.clear();
@@ -74,5 +72,14 @@ public class Application {
 
         filterNullFromListII(unsortedList,resultList);
         System.out.println(resultList);
+/*-------------------------------------------------------------------------*/
+        System.out.println("\nI filtered list from some string");
+
+        List<String> list = Arrays.asList("meal", "food", "bed", "apple");
+        List<String> listResult = filterSomeStringFromList(list, "bed");
+
+        for(String s:listResult){
+            System.out.print(s + " ");
+        }
     }
 }

@@ -2,10 +2,8 @@ package ua.in.gnatyuk.demoClasses;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
-/**
- * Created by yroslav on 9/19/16.
- */
 public class Filtering {
     public static void filterNullFromListI(List<String> withNull, List<String> withoutNull){
         withNull.stream()
@@ -17,5 +15,10 @@ public class Filtering {
         withNull.stream()
                 .filter(Objects::nonNull)
                 .forEach(x->withoutNull.add(x));
+    }
+
+    public static List<String> filterSomeStringFromList(List<String> listForFiltering, String word){
+        List<String> result = listForFiltering.stream().filter(x->!x.equals(word)).collect(Collectors.toList());
+        return result;
     }
 }
