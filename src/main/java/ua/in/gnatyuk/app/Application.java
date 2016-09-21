@@ -1,8 +1,14 @@
 package ua.in.gnatyuk.app;
 
+import javax.swing.text.DateFormatter;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.function.BinaryOperator;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
-import static ua.in.gnatyuk.demoClasses.Filtering.*;
+import static ua.in.gnatyuk.demoClasses.Filtering.filterNullFromListII;
+import static ua.in.gnatyuk.demoClasses.Filtering.filterSomeStringFromList;
 import static ua.in.gnatyuk.demoClasses.Sorting.*;
 
 
@@ -79,7 +85,17 @@ public class Application {
         List<String> listResult = filterSomeStringFromList(list, "bed");
 
         for(String s:listResult){
-            System.out.print(s + " ");
+            System.out.print(s + " \n");
         }
+/*-------------------------------------------------------------------------*/
+        Predicate<Integer> atLeast5 = x->x > 5;
+        List<Integer> listOfInt = Arrays.asList(1,36,67,1,2,4,56,10);
+        listOfInt.stream().filter(atLeast5).forEach(System.out::println);
+
+        BinaryOperator<Long> addLongs = (x,y)-> x + y;
+
+        Supplier<DateFormatter> dateFormatterSupplier = () -> new DateFormatter(new SimpleDateFormat("dd-MMM-yyyy"));
+        ThreadLocal<DateFormatter> formatter = ThreadLocal.withInitial(dateFormatterSupplier);
+
     }
 }

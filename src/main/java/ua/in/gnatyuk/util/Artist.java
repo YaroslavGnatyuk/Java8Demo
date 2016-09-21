@@ -2,15 +2,17 @@ package ua.in.gnatyuk.util;
 
 import lombok.*;
 
+import java.util.List;
+
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class Artist {
     @Getter @Setter
-    Integer id;
+    String name;
     @Getter @Setter
-    String firstName;
+    List<String> members;
     @Getter @Setter
-    String lastName;
+    String origin;
 }
