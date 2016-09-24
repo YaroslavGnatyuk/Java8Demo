@@ -16,5 +16,5 @@ public class Album {
     @Getter@Setter
     List<Composition> tracks;
     @Getter@Setter
-    List<Artist> musicians;
+    List<Band> musicians;
 }

@@ -1,16 +1,13 @@
 package ua.in.gnatyuk.app;
 
-import javax.swing.text.DateFormatter;
-import java.text.SimpleDateFormat;
+import ua.in.gnatyuk.util.Artist;
+
 import java.util.*;
-import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
-import static ua.in.gnatyuk.demoClasses.Filtering.filterNullFromListII;
-import static ua.in.gnatyuk.demoClasses.Filtering.filterSomeStringFromList;
+import static ua.in.gnatyuk.demoClasses.Filtering.*;
 import static ua.in.gnatyuk.demoClasses.Sorting.*;
-
 
 public class Application {
     public static void main(String[] args) {
@@ -91,11 +88,32 @@ public class Application {
         Predicate<Integer> atLeast5 = x->x > 5;
         List<Integer> listOfInt = Arrays.asList(1,36,67,1,2,4,56,10);
         listOfInt.stream().filter(atLeast5).forEach(System.out::println);
+/*-------------------------------------------------------------------------*/
+        List<Artist> artists = Arrays.asList(new Artist("Vovan","Ukraine"),
+                                            new Artist("Evgen", "Russia"),
+                                            new Artist("Yan","Moldova"),
+                                            new Artist("Elen","England"),
+                                            new Artist("John","USA"),
+                                            new Artist("Phillimon","USA"),
+                                            new Artist("Keith","England"));
 
-        BinaryOperator<Long> addLongs = (x,y)-> x + y;
+        System.out.println("\nConvert to upper case");
+        List<String> title = artists.stream().map(string->string.toString().toUpperCase()).collect(Collectors.toList());
+        title.forEach(x->System.out.println(x));
 
-        Supplier<DateFormatter> dateFormatterSupplier = () -> new DateFormatter(new SimpleDateFormat("dd-MMM-yyyy"));
-        ThreadLocal<DateFormatter> formatter = ThreadLocal.withInitial(dateFormatterSupplier);
+        System.out.println("\nEngland band");
+        List<Artist> englandArtist = artists.stream().filter(x -> x.isFrom("England")).collect(Collectors.toList());
+        englandArtist.forEach(y -> System.out.println(y));
 
+        System.out.println("\nList sorted by name");
+        Comparator<Artist> artCompare = (a, b)->a.getName().compareTo(b.getName());
+        List<Artist> sortedArtist = artists.stream().sorted(artCompare).collect(Collectors.toList());
+        sortedArtist.forEach(z->System.out.println(z.toString()));
+
+        Comparator<Artist> minLengthString = (a,b) -> a.getName().length()-b.getName().length();
+        Artist shortestName = artists.stream().min(minLengthString).get();
+        Artist longestName = artists.stream().max(minLengthString).get();
+        System.out.println("\nThe shortest name is : " + shortestName.getName() +
+                            "\nThe longest name is : " + longestName.getName());
     }
 }
