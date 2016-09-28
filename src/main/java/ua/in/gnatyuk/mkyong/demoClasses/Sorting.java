@@ -1,4 +1,4 @@
-package ua.in.gnatyuk.demoClasses;
+package ua.in.gnatyuk.mkyong.demoClasses;
 
 import java.util.List;
 import java.util.Map;

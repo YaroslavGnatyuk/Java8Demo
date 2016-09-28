@@ -1,4 +1,4 @@
-package ua.in.gnatyuk.util;
+package ua.in.gnatyuk.java8Lambdas.music;
 
 public class Artist {
     String name;

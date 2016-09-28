@@ -1,6 +1,5 @@
-package ua.in.gnatyuk.demoClasses;
+package ua.in.gnatyuk.mkyong.demoClasses;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
