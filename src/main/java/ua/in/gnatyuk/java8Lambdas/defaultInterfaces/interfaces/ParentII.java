@@ -3,13 +3,12 @@ package ua.in.gnatyuk.java8Lambdas.defaultInterfaces.interfaces;
 /**
  * Created with IntelliJ IDEA.
  * User: asutp
- * Date: 04.10.16
- * Time: 6:13
+ * Date: 06.10.16
+ * Time: 15:18
  * To change this template use File | Settings | File Templates.
  */
-public interface Child extends Parent{
-    @Override
+public interface ParentII {
     default void moveForvard(){
-        System.out.println("Child:I will go forward very fast!!!");
+            System.out.println("ParentII:I will go forward!!!");
     }
 }

@@ -9,6 +9,6 @@ package ua.in.gnatyuk.java8Lambdas.defaultInterfaces.interfaces;
  */
 public interface Parent {
     public default void moveForvard(){
-        System.out.println("I will go forward!!!");
+        System.out.println("Parent: I will go forward!!!");
     }
 }
